@@ -1,3 +1,7 @@
+![.NET](https://img.shields.io/badge/.NET-8-blue)
+![Architecture](https://img.shields.io/badge/Architecture-Clean-green)
+![Auth](https://img.shields.io/badge/Auth-JWT-orange)
+![Status](https://img.shields.io/badge/Status-ProductionReady-brightgreen)
 # ?? User Management & Authentication System
 
 A **production-ready ASP.NET Core Web API** for managing users, roles, authentication, and permissions using **Clean Architecture** and **JWT-based security**.
