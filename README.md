@@ -61,22 +61,21 @@ This project is a **multi-tenant User Management System** designed with industry
 
 This project follows **Clean Architecture** with clear separation of concerns:
 
-### 📂 Project Structure
-
-    User Management System
-    │
-    ├── 🟦 UserManagement.Api
-    │   └── Controllers, Middleware, Swagger
-    │
-    ├── 🟩 UserManagement.Application
-    │   └── Business Logic (CQRS, MediatR, Validators)
-    │
-    ├── 🟨 UserManagement.Domain
-    │   └── Entities, Enums, Interfaces
-    │
-    └── 🟥 UserManagement.Infrastructure
-        └── EF Core, Repositories, Security, Persistence
-
+```bash
+User Management System
+│
+├── 🟦 UserManagement.Api
+│   └── Controllers, Middleware, Swagger
+│
+├── 🟩 UserManagement.Application
+│   └── Business Logic (CQRS, MediatR, Validators)
+│
+├── 🟨 UserManagement.Domain
+│   └── Entities, Enums, Interfaces
+│
+└── 🟥 UserManagement.Infrastructure
+    └── EF Core, Repositories, Security, Persistence
+```
 ---
 
 ### 🔁 Request Flow
