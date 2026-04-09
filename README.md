@@ -57,16 +57,44 @@ This project is a **multi-tenant User Management System** designed with industry
 * Health check endpoint
 
 ---
+## 🏗️ Architecture
 
-## :triangular_ruler: Architecture
+This project follows **Clean Architecture** with clear separation of concerns:
 
-```bash
-User Management System
-├── UserManagement.Api              # Controllers, Middleware
-├── UserManagement.Application      # Business Logic (CQRS, MediatR)
-├── UserManagement.Domain           # Entities & Interfaces
-└── UserManagement.Infrastructure   # EF Core, Security, Persistence
+### 📂 Project Structure
 
+    User Management System
+    │
+    ├── 🟦 UserManagement.Api
+    │   └── Controllers, Middleware, Swagger
+    │
+    ├── 🟩 UserManagement.Application
+    │   └── Business Logic (CQRS, MediatR, Validators)
+    │
+    ├── 🟨 UserManagement.Domain
+    │   └── Entities, Enums, Interfaces
+    │
+    └── 🟥 UserManagement.Infrastructure
+        └── EF Core, Repositories, Security, Persistence
+
+---
+
+### 🔁 Request Flow
+
+Client → API → Application → Domain → Infrastructure → Database
+
+---
+
+### 📊 Architecture Diagram
+
+```mermaid
+graph TD
+    A[Client] --> B[API Layer]
+    B --> C[Application Layer]
+    C --> D[Domain Layer]
+    C --> E[Infrastructure Layer]
+    E --> F[(Database)]
+```
 ---
 
 ## 💻 Tech Stack
@@ -150,15 +178,18 @@ http://localhost:xxxx/swagger
 
 ---
 
-## ⭐ Key Highlights
+## ⭐ Key Highlights 
 
-✔️ Implemented Clean Architecture + CQRS
-✔️ Designed multi-tenant system
-✔️ Built custom authorization policies
-✔️ Implemented soft delete with global filters
-✔️ Secured API with JWT + Refresh Tokens
-✔️ Added rate limiting & logging (Serilog)
-✔️ Production-ready structure
+✔️ Implemented Clean Architecture + CQRS pattern  
+✔️ Designed multi-tenant system with tenant isolation  
+✔️ Built JWT Authentication with Refresh Token mechanism  
+✔️ Implemented role-based & permission-based authorization  
+✔️ Created custom authorization policies & handlers  
+✔️ Added soft delete with global query filters (EF Core)  
+✔️ Integrated rate limiting for API protection  
+✔️ Implemented global exception handling middleware  
+✔️ Added structured logging using Serilog  
+✔️ Built production-ready scalable backend structure
 
 ---
 
