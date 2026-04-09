@@ -2,53 +2,54 @@
 ![Architecture](https://img.shields.io/badge/Architecture-Clean-green)
 ![Auth](https://img.shields.io/badge/Auth-JWT-orange)
 ![Status](https://img.shields.io/badge/Status-ProductionReady-brightgreen)
-# ?? User Management & Authentication System
+
+# :rocket: User Management & Authentication System
 
 A **production-ready ASP.NET Core Web API** for managing users, roles, authentication, and permissions using **Clean Architecture** and **JWT-based security**.
 
 ---
 
-## ?? Project Overview
+## :pushpin: Project Overview
 
 This project is a **multi-tenant User Management System** designed with industry best practices:
 
-* ?? Secure authentication using JWT
-* ?? Role-based and permission-based authorization
-* ?? Clean Architecture (Domain, Application, Infrastructure, API)
-* ??? Entity Framework Core with SQL Server
-* ?? Soft Delete with Audit Logging
-* ? Rate Limiting + Global Exception Handling
-* ?? Swagger API documentation
+* :lock: Secure authentication using JWT
+* :shield: Role-based and permission-based authorization
+* :building_construction: Clean Architecture (Domain, Application, Infrastructure, API)
+* :floppy_disk: Entity Framework Core with SQL Server
+* :recycle: Soft Delete with Audit Logging
+* :zap: Rate Limiting + Global Exception Handling
+* :page_facing_up: Swagger API documentation
 
 ---
 
-## ? Features
+## :sparkles: Features
 
-### ?? Authentication & Security
+### :closed_lock_with_key: Authentication & Security
 
 * JWT Access Token & Refresh Token
 * Secure password hashing
 * Token validation with custom claims
 
-### ?? User Management
+### :busts_in_silhouette: User Management
 
 * Create, update, delete users
 * Multi-tenant support
 * Pagination support
 
-### ??? Authorization
+### :balance_scale: Authorization
 
 * Role-based access (Admin, User)
 * Permission-based policies
 * Custom authorization handlers
 
-### ?? Soft Delete & Audit
+### :wastebasket: Soft Delete & Audit
 
 * Users are not deleted permanently
 * `IsDeleted`, `DeletedAt`, `DeletedBy`
 * Global query filters (auto exclude deleted data)
 
-### ?? System Features
+### :gear: System Features
 
 * Rate limiting (API protection)
 * Global exception middleware
@@ -57,19 +58,18 @@ This project is a **multi-tenant User Management System** designed with industry
 
 ---
 
-## ??? Architecture
+## :triangular_ruler: Architecture
 
 ```bash
 User Management System
-??? UserManagement.Api              # Controllers, Middleware
-??? UserManagement.Application      # Business Logic (CQRS, MediatR)
-??? UserManagement.Domain           # Entities & Interfaces
-??? UserManagement.Infrastructure   # EF Core, Security, Persistence
-```
+├── UserManagement.Api              # Controllers, Middleware
+├── UserManagement.Application      # Business Logic (CQRS, MediatR)
+├── UserManagement.Domain           # Entities & Interfaces
+└── UserManagement.Infrastructure   # EF Core, Security, Persistence
 
 ---
 
-## ??? Tech Stack
+## 💻 Tech Stack
 
 * **Backend:** ASP.NET Core Web API (.NET 8)
 * **Database:** SQL Server
@@ -86,7 +86,7 @@ User Management System
 
 ---
 
-## ?? How to Run
+## 🚀 How to Run
 
 ### 1. Clone Repository
 
@@ -124,23 +124,23 @@ http://localhost:xxxx/swagger
 
 ---
 
-## ?? Default Admin Credentials
+## :key: Default Admin Credentials
 
 * Email: [admin@gmail.com](mailto:admin@gmail.com)
 * Password: Admin@123
 
 ---
 
-## ?? API Endpoints
+## 🔗 API Endpoints
 
-### ?? Auth
+### 🔐 Auth
 
 * `POST /api/auth/register`
 * `POST /api/auth/login`
 * `POST /api/auth/refresh`
 * `POST /api/auth/logout`
 
-### ?? Users
+### 👤 Users
 
 * `GET /api/users`
 * `GET /api/users/{id}`
@@ -150,19 +150,19 @@ http://localhost:xxxx/swagger
 
 ---
 
-## ?? Key Highlights (For Recruiters)
+## ⭐ Key Highlights
 
-? Implemented Clean Architecture + CQRS
-? Designed multi-tenant system
-? Built custom authorization policies
-? Implemented soft delete with global filters
-? Secured API with JWT + Refresh Tokens
-? Added rate limiting & logging (Serilog)
-? Production-ready structure
+✔️ Implemented Clean Architecture + CQRS
+✔️ Designed multi-tenant system
+✔️ Built custom authorization policies
+✔️ Implemented soft delete with global filters
+✔️ Secured API with JWT + Refresh Tokens
+✔️ Added rate limiting & logging (Serilog)
+✔️ Production-ready structure
 
 ---
 
-## ?? Future Improvements
+## 📈 Future Improvements
 
 * Add Audit Log Table (history tracking)
 * Add Restore (Undo delete)
@@ -172,12 +172,12 @@ http://localhost:xxxx/swagger
 
 ---
 
-## ????? Author
+## 👨‍💻 Author
 
 **Rushikesh Jagdale**
 
 ---
 
-## ? If you like this project
+## 🌟 If you like this project
 
-Give it a ? on GitHub!
+Give it a ⭐ on GitHub!
