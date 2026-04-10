@@ -118,7 +118,7 @@ graph TD
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/your-username/user-management-api.git
+git clone https://github.com/rushikesh-jagdale/user-management-api.git
 ```
 
 ### 2. Update Database Connection
