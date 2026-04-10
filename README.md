@@ -3,6 +3,14 @@
 ![Auth](https://img.shields.io/badge/Auth-JWT-orange)
 ![Status](https://img.shields.io/badge/Status-ProductionReady-brightgreen)
 
+## 🌐 Live API
+
+🔗 Base URL:
+https://user-management-api-dsp6.onrender.com
+
+📘 Swagger UI:
+https://user-management-api-dsp6.onrender.com/swagger
+
 # :rocket: User Management & Authentication System
 
 A **production-ready ASP.NET Core Web API** for managing users, roles, authentication, and permissions using **Clean Architecture** and **JWT-based security**.
