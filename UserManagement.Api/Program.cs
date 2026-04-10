@@ -64,7 +64,7 @@ builder.Services.AddRateLimiter(options =>
 });
 
 // =========================
-// Tenant + Authorization Handlers
+// Tenant + Authorization
 // =========================
 builder.Services.AddScoped<ITenantContext, TenantContext>();
 builder.Services.AddScoped<IAuthorizationHandler, TenantAccessHandler>();
@@ -103,7 +103,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
             RoleClaimType = ClaimTypes.Role,
             NameClaimType = "sub",
-
             ClockSkew = TimeSpan.Zero
         };
 
@@ -122,11 +121,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 return Task.CompletedTask;
             },
 
-            // ✅ Consistent API responses
             OnChallenge = context =>
             {
                 context.HandleResponse();
-
                 context.Response.StatusCode = 401;
                 context.Response.ContentType = "application/json";
 
@@ -238,7 +235,11 @@ builder.Services.AddSwaggerGen(options =>
 // =========================
 var app = builder.Build();
 
-// ✅ SINGLE SEEDER (DbInitializer)
+// ✅ 🔥 IMPORTANT: Render Port Binding
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Urls.Add($"http://*:{port}");
+
+// ✅ Database Seeder
 try
 {
     await DbInitializer.SeedAsync(app.Services);
@@ -248,12 +249,9 @@ catch (Exception ex)
     Log.Error(ex, "Database seeding failed");
 }
 
-// Swagger
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// ✅ 🔥 Swagger ENABLED FOR PRODUCTION
+app.UseSwagger();
+app.UseSwaggerUI();
 
 // Logging
 app.UseSerilogRequestLogging();
@@ -269,7 +267,7 @@ app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Controllers + rate limiting
+// Controllers
 app.MapControllers().RequireRateLimiting("fixed");
 
 // Health
