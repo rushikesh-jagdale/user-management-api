@@ -177,6 +177,31 @@ http://localhost:xxxx/swagger
 
 ---
 
+## 📸 Screenshots
+
+### 🔹 API Preview
+
+<table>
+  <tr>
+    <td align="center"><b>Swagger UI</b></td>
+    <td align="center"><b>Login API</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/swagger-ui.png" width="500"/></td>
+    <td><img src="screenshots/login-api.png" width="500"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Users API</b></td>
+    <td align="center"><b>Database</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/users-api.png" width="500"/></td>
+    <td><img src="screenshots/database.png" width="500"/></td>
+  </tr>
+</table>
+
+---
+
 ## ⭐ Key Highlights 
 
 ✔️ Implemented Clean Architecture + CQRS pattern  
