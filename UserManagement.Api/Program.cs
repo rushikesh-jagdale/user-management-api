@@ -240,14 +240,14 @@ var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 app.Urls.Add($"http://*:{port}");
 
 // ✅ Database Seeder
-try
+/*try
 {
     await DbInitializer.SeedAsync(app.Services);
 }
 catch (Exception ex)
 {
     Log.Error(ex, "Database seeding failed");
-}
+}*/
 
 // ✅ 🔥 Swagger ENABLED FOR PRODUCTION
 app.UseSwagger();
