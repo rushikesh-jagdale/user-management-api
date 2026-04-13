@@ -16,7 +16,7 @@ namespace UserManagement.Infrastructure.Persistence.DbContext
 
             var optionsBuilder = new DbContextOptionsBuilder<UserManagementDbContext>();
 
-            optionsBuilder.UseSqlServer(
+            optionsBuilder.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection"));
 
             return new UserManagementDbContext(optionsBuilder.Options);

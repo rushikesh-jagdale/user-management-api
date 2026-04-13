@@ -12,7 +12,6 @@ using UserManagement.Application;
 using UserManagement.Application.Abstractions.Tenancy;
 using UserManagement.Infrastructure;
 using UserManagement.Infrastructure.Persistence;
-using UserManagement.Infrastructure.Persistence.DbContext;
 using UserManagement.Infrastructure.Security;
 using UserManagement.Infrastructure.Tenancy;
 
@@ -235,23 +234,43 @@ builder.Services.AddSwaggerGen(options =>
 // =========================
 var app = builder.Build();
 
-// ✅ 🔥 IMPORTANT: Render Port Binding
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-app.Urls.Add($"http://*:{port}");
-
-// ✅ Database Seeder
-/*try
+// =========================
+// ✅ DATABASE SEEDER (SAFE)
+// =========================
+if (app.Environment.IsDevelopment())
 {
-    await DbInitializer.SeedAsync(app.Services);
+    try
+    {
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+            await DbInitializer.SeedAsync(services);
+        }
+
+        Log.Information("Database seeding completed successfully");
+    }
+    catch (Exception ex)
+    {
+        Log.Error(ex, "Database seeding failed");
+    }
 }
-catch (Exception ex)
-{
-    Log.Error(ex, "Database seeding failed");
-}*/
 
-// ✅ 🔥 Swagger ENABLED FOR PRODUCTION
-app.UseSwagger();
-app.UseSwaggerUI();
+
+
+// ✅ Render Port Fix
+var port = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrEmpty(port))
+{
+    app.Urls.Add($"http://*:{port}");
+}
+
+//✅ Swagger ALWAYS ENABLED
+    app.UseSwagger();
+    app.UseSwaggerUI();
+
+
+// ✅ Optional: redirect root → swagger (VERY USEFUL)
+app.MapGet("/", () => Results.Redirect("/swagger"));
 
 // Logging
 app.UseSerilogRequestLogging();
@@ -262,6 +281,8 @@ app.UseMiddleware<TenantMiddleware>();
 
 // Rate limiter
 app.UseRateLimiter();
+
+app.UseHttpsRedirection();
 
 // Auth
 app.UseAuthentication();
