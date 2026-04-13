@@ -270,7 +270,8 @@ if (!string.IsNullOrEmpty(port))
 
 
 // ✅ Optional: redirect root → swagger (VERY USEFUL)
-app.MapGet("/", () => Results.Redirect("/swagger"));
+app.MapGet("/", () => Results.Redirect("/swagger"))
+   .ExcludeFromDescription();
 
 // Logging
 app.UseSerilogRequestLogging();
